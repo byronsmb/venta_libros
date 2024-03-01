@@ -67,3 +67,39 @@ const librosDisponibles = [
       urlImage:
           'https://static.cegal.es/imagenes/marcadas/9788466/978846667727.gif'),
 ];
+
+const librosPopulares = [
+  Libro(
+      titulo: 'El Hombre más Rico de Babilonia',
+      subtitulo: 'Como alcanzar el éxito]',
+      autor: 'George S. Clason',
+      descripcion:
+          'Narra los principios fundamentales que necesita para triunfar en el terreno financiero y a través de los cuales podrás aumentar tu patrimonio e inteligencia financiera.',
+      urlImage:
+          'https://planetadelibrosec0.cdnstatics.com/usuaris/libros/fotos/393/m_libros/392374_portada_el-hombre-mas-rico-de-babilonia_george-s-clason_202401291659.jpg'),
+  Libro(
+      titulo: 'La Psicología del Dinero',
+      subtitulo: 'Cómo piensan los ricos',
+      autor: 'Daniel Erickson',
+      descripcion:
+          '¿Alguna vez has sentido que el gastar dinero se produjo por un impulso emocional, más que por un análisis racional de la situación previa a gastar ese dinero?',
+      urlImage:
+          'https://planetadelibrosec0.cdnstatics.com/usuaris/libros/fotos/357/m_libros/356965_portada_la-psicologia-del-dinero_morgan-housel_202211080819.jpg'),
+  Libro(
+      titulo: 'FLASH BOYS',
+      subtitulo:
+          'LA REVOLUCIÓN DE WALL STREET CONTRA QUIENES MANIPULAN EL MERCADO',
+      autor: 'MICHAEL LEWIS',
+      descripcion:
+          'El nuevo libro de Michael Lewis trata sobre el Trading de Alta Frecuencia y la manipulación de los índices bursátiles por operadores con acceso privilegiado. Son operaciones realizadas mediante algoritmos matemáticos, pero haciéndolas con enorme velocidad.',
+      urlImage:
+          'https://imagessl0.casadellibro.com/a/l/s7/00/9788423418800.webp'),
+  Libro(
+      titulo: 'JUEGO DE TRONOS',
+      subtitulo: 'CANCIÓN DE HIELO Y FUEGO 1',
+      autor: 'GEORGE R.R. MARTIN',
+      descripcion:
+          'En un mundo diferente al nuestro, en el que los veranos y los inviernos duran generaciones, un gran conflicto está a punto de estallar. Robert Baratheon ocupa el Trono de Hierro en el cálido y opulento sur de Poniente. Se lo arrebató tras una sangrienta guerra al último rey loco de la dinastía Targaryen, señores de dragones.',
+      urlImage:
+          'https://imagessl4.casadellibro.com/a/l/s7/24/9788401032424.webp'),
+];
