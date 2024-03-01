@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:venta_libros/data/datos_ficticios.dart';
+import 'package:venta_libros/screens/libro_detalle.dart';
 import 'package:venta_libros/widgets/book_3d.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -50,8 +51,19 @@ class _MainPageState extends State<MainPage> {
                 ),
                 itemBuilder:
                     (BuildContext context, int itemIndex, int pageViewIndex) {
-                  return Book3DWidget(
-                    libroActual: librosDisponibles[itemIndex],
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LibroDetalle(
+                                imagenUrlActual:
+                                    librosDisponibles[itemIndex].urlImage),
+                          ));
+                    },
+                    child: Book3DWidget(
+                      libroActual: librosDisponibles[itemIndex],
+                    ),
                   );
                 }),
             Text('LIBROS POPULARES'),
@@ -63,41 +75,52 @@ class _MainPageState extends State<MainPage> {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Container(
-                          color: Colors.red,
-                          height: 180,
-                          child: Card(
-                            elevation: 15, // sombra del card
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(
-                                  10.0), // bordes redondeados
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(
-                                  10.0), // para que la imagen tenga bordes redondeados
-                              child: Image.network(
-                                librosPopulares[index]
-                                    .urlImage, // URL de la imagen
-                                fit: BoxFit
-                                    .cover, // ajuste de la imagen dentro del card
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LibroDetalle(
+                                  imagenUrlActual:
+                                      librosPopulares[index].urlImage),
+                            ));
+                      },
+                      child: Column(
+                        children: [
+                          Container(
+                            //color: Colors.red,
+                            height: 180,
+                            child: Card(
+                              elevation: 15, // sombra del card
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                    10.0), // bordes redondeados
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(
+                                    10.0), // para que la imagen tenga bordes redondeados
+                                child: Image.network(
+                                  librosPopulares[index]
+                                      .urlImage, // URL de la imagen
+                                  fit: BoxFit
+                                      .cover, // ajuste de la imagen dentro del card
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Text(
-                          librosPopulares[index].titulo,
-                          style: GoogleFonts.teko(
-                            textStyle: Theme.of(context).textTheme.bodySmall,
-                            //fontSize: 48,
-                            fontWeight: FontWeight.w700,
-                            //fontStyle: FontStyle.italic,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        )
-                      ],
+                          Text(
+                            librosPopulares[index].titulo,
+                            style: GoogleFonts.teko(
+                              textStyle: Theme.of(context).textTheme.bodySmall,
+                              //fontSize: 48,
+                              fontWeight: FontWeight.w700,
+                              //fontStyle: FontStyle.italic,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          )
+                        ],
+                      ),
                     ),
                   );
                 },
