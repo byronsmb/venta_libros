@@ -29,7 +29,21 @@ class _MainPageState extends State<MainPage> {
                 children: [Icon(Icons.menu), Icon(Icons.explore)],
               ),
             ),
-            Text('LIBROS'),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'LIBROS',
+                  style: GoogleFonts.teko(
+                    textStyle: Theme.of(context).textTheme.bodySmall,
+                    fontSize: 30,
+                    //fontWeight: FontWeight.w700,
+                    //fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            ),
             CarouselSlider.builder(
                 itemCount: librosDisponibles.length,
                 options: CarouselOptions(
@@ -65,7 +79,21 @@ class _MainPageState extends State<MainPage> {
                     ),
                   );
                 }),
-            Text('LIBROS POPULARES'),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'LIBROS POPULARES',
+                  style: GoogleFonts.teko(
+                    textStyle: Theme.of(context).textTheme.bodySmall,
+                    fontSize: 30,
+                    //fontWeight: FontWeight.w700,
+                    //fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            ),
             Container(
               height: 200,
               child: ListView.builder(

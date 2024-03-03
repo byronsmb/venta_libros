@@ -33,7 +33,7 @@ class _LibroDetalleState extends State<LibroDetalle> {
   Widget build(BuildContext context) {
     Size size = Size(256, 256);
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color.fromARGB(255, 56, 107, 237)),
+      appBar: AppBar(backgroundColor: const Color.fromARGB(255, 56, 107, 237)),
       body: Column(
         children: [
           Container(
@@ -53,44 +53,55 @@ class _LibroDetalleState extends State<LibroDetalle> {
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 25),
-                      child: GestureDetector(
-                        child: FlipWidget(
-                          key: _flipKey,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Colors.amber,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color.fromARGB(255, 32, 30, 30)
-                                      .withOpacity(0.5), // Color de la sombra
-                                  spreadRadius: 5, // Radio de propagación
-                                  blurRadius: 7, // Radio de desenfoque
-                                  offset: Offset(3, 3),
-                                ),
-                              ],
+                      child: Container(
+                        width: 250,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          //color: Colors.amber,
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color.fromARGB(255, 32, 30, 30)
+                                  .withOpacity(0.5), // Color de la sombra
+                              spreadRadius: 5, // Radio de propagación
+                              blurRadius: 7, // Radio de desenfoque
+                              offset: Offset(3, 3),
                             ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: Hero(
-                                tag: widget.libroActual.id,
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20.0),
+                          child: Hero(
+                            tag: widget.libroActual.id,
+                            child: GestureDetector(
+                              child: FlipWidget(
+                                key: _flipKey,
                                 child:
                                     Image.network(widget.libroActual.urlImage),
                               ),
+                              onHorizontalDragStart: (details) {
+                                _oldPosition = details.globalPosition;
+                                _flipKey.currentState?.startFlip();
+                              },
+                              onHorizontalDragUpdate: (details) {
+                                Offset off =
+                                    details.globalPosition - _oldPosition;
+                                double tilt =
+                                    1 / _clampMin((-off.dy + 20) / 100);
+                                double percent =
+                                    math.max(0, -off.dx / size.width * 1.4);
+                                percent =
+                                    percent - percent / 2 * (1 - 1 / tilt);
+                                _flipKey.currentState?.flip(percent, tilt);
+                              },
+                              onHorizontalDragEnd: (details) {
+                                _flipKey.currentState?.stopFlip();
+                              },
+                              onHorizontalDragCancel: () {
+                                _flipKey.currentState?.stopFlip();
+                              },
                             ),
                           ),
                         ),
-                        onHorizontalDragStart: (details) {
-                          _flipKey.currentState?.startFlip();
-                          _flipKey.currentState?.flip(0.5, 8);
-                        },
-                        onHorizontalDragUpdate: (details) {},
-                        onHorizontalDragEnd: (details) {
-                          _flipKey.currentState?.stopFlip();
-                        },
-                        onHorizontalDragCancel: () {
-                          _flipKey.currentState?.stopFlip();
-                        },
                       ),
                     ),
                   ),
