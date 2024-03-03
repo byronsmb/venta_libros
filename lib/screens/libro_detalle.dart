@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venta_libros/models/libro.dart';
 import 'package:flip_widget/flip_widget.dart';
+import 'dart:math' as math;
 
 class LibroDetalle extends StatefulWidget {
   const LibroDetalle({super.key, required this.libroActual});
@@ -12,9 +13,25 @@ class LibroDetalle extends StatefulWidget {
   State<LibroDetalle> createState() => _LibroDetalleState();
 }
 
+const double _MinNumber = 0.008;
+double _clampMin(double v) {
+  if (v < _MinNumber && v > -_MinNumber) {
+    if (v >= 0) {
+      v = _MinNumber;
+    } else {
+      v = -_MinNumber;
+    }
+  }
+  return v;
+}
+
 class _LibroDetalleState extends State<LibroDetalle> {
+  GlobalKey<FlipWidgetState> _flipKey = GlobalKey();
+  Offset _oldPosition = Offset.zero;
+
   @override
   Widget build(BuildContext context) {
+    Size size = Size(256, 256);
     return Scaffold(
       appBar: AppBar(backgroundColor: Color.fromARGB(255, 56, 107, 237)),
       body: Column(
@@ -36,29 +53,45 @@ class _LibroDetalleState extends State<LibroDetalle> {
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 25),
-                      child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color.fromARGB(255, 32, 30, 30)
-                                    .withOpacity(0.5), // Color de la sombra
-                                spreadRadius: 5, // Radio de propagación
-                                blurRadius: 7, // Radio de desenfoque
-                                offset: Offset(3, 3),
-                              ),
-                            ],
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20.0),
-                            child: Hero(
-                              tag: widget.libroActual.id,
-                              child: FlipWidget(
+                      child: GestureDetector(
+                        child: FlipWidget(
+                          key: _flipKey,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.amber,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color.fromARGB(255, 32, 30, 30)
+                                      .withOpacity(0.5), // Color de la sombra
+                                  spreadRadius: 5, // Radio de propagación
+                                  blurRadius: 7, // Radio de desenfoque
+                                  offset: Offset(3, 3),
+                                ),
+                              ],
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20.0),
+                              child: Hero(
+                                tag: widget.libroActual.id,
                                 child:
                                     Image.network(widget.libroActual.urlImage),
                               ),
                             ),
-                          )),
+                          ),
+                        ),
+                        onHorizontalDragStart: (details) {
+                          _flipKey.currentState?.startFlip();
+                          _flipKey.currentState?.flip(0.5, 8);
+                        },
+                        onHorizontalDragUpdate: (details) {},
+                        onHorizontalDragEnd: (details) {
+                          _flipKey.currentState?.stopFlip();
+                        },
+                        onHorizontalDragCancel: () {
+                          _flipKey.currentState?.stopFlip();
+                        },
+                      ),
                     ),
                   ),
                   Align(
