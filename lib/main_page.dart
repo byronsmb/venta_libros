@@ -135,9 +135,7 @@ class _MainPageState extends State<MainPage> {
                             librosPopulares[index].titulo,
                             style: GoogleFonts.teko(
                               textStyle: Theme.of(context).textTheme.bodySmall,
-                              //fontSize: 48,
                               fontWeight: FontWeight.w700,
-                              //fontStyle: FontStyle.italic,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -152,7 +150,7 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
         bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
+          shape: const CircularNotchedRectangle(),
           notchMargin: 8.0,
           clipBehavior: Clip.antiAlias,
           child: Container(
@@ -176,7 +174,7 @@ class _MainPageState extends State<MainPage> {
                       _currentIndex = index;
                     });
                   },
-                  items: [
+                  items: const [
                     BottomNavigationBarItem(
                         icon: Icon(Icons.category), label: 'Categorias'),
                     BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
