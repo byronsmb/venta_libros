@@ -47,7 +47,7 @@ class LibroDetalle extends StatelessWidget {
                   ),
                   Align(
                       alignment: Alignment.bottomCenter,
-                      child: Text('PONER HERO A IMAGENES')),
+                      child: Text('PONER HERO A  imgsn')),
                 ],
               )
               //Image.network(imagenUrlActual),

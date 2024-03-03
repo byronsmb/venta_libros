@@ -1,6 +1,6 @@
 import 'package:venta_libros/models/libro.dart';
 
-const librosDisponibles = [
+final librosDisponibles = [
   Libro(
       titulo: 'EL QUINTO INFIERNO',
       subtitulo: 'LA VIDA DE LUCIO CORNELIO SILA',
@@ -68,7 +68,7 @@ const librosDisponibles = [
           'https://static.cegal.es/imagenes/marcadas/9788466/978846667727.gif'),
 ];
 
-const librosPopulares = [
+final librosPopulares = [
   Libro(
       titulo: 'El Hombre más Rico de Babilonia',
       subtitulo: 'Como alcanzar el éxito]',
