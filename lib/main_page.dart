@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:venta_libros/data/datos_ficticios.dart';
@@ -156,7 +155,7 @@ class _MainPageState extends State<MainPage> {
           child: Container(
             height: kBottomNavigationBarHeight,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 border: Border(
                   top: BorderSide(
