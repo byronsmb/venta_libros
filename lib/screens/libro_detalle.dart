@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LibroDetalle extends StatelessWidget {
-  const LibroDetalle({super.key, required this.imagenUrlActual});
+  const LibroDetalle(
+      {super.key, required this.imagenUrlActual, required this.idActual});
   final String imagenUrlActual;
+  final String idActual;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,9 @@ class LibroDetalle extends StatelessWidget {
                           ),
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(20.0),
-                              child: Image.network(imagenUrlActual))),
+                              child: Hero(
+                                  tag: idActual,
+                                  child: Image.network(imagenUrlActual)))),
                     ),
                   ),
                   Align(

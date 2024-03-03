@@ -26,11 +26,14 @@ class Book3DWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
             child: Stack(
               children: [
-                Image.network(
-                  libroActual.urlImage,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
+                Hero(
+                  tag: libroActual.id,
+                  child: Image.network(
+                    libroActual.urlImage,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
                 ),
                 Positioned.fill(
                   child: Container(

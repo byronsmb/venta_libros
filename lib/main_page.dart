@@ -57,6 +57,7 @@ class _MainPageState extends State<MainPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => LibroDetalle(
+                                idActual: librosDisponibles[itemIndex].id,
                                 imagenUrlActual:
                                     librosDisponibles[itemIndex].urlImage),
                           ));
@@ -81,6 +82,7 @@ class _MainPageState extends State<MainPage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => LibroDetalle(
+                                  idActual: librosPopulares[index].id,
                                   imagenUrlActual:
                                       librosPopulares[index].urlImage),
                             ));
@@ -99,11 +101,14 @@ class _MainPageState extends State<MainPage> {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(
                                     10.0), // para que la imagen tenga bordes redondeados
-                                child: Image.network(
-                                  librosPopulares[index]
-                                      .urlImage, // URL de la imagen
-                                  fit: BoxFit
-                                      .cover, // ajuste de la imagen dentro del card
+                                child: Hero(
+                                  tag: librosPopulares[index].id,
+                                  child: Image.network(
+                                    librosPopulares[index]
+                                        .urlImage, // URL de la imagen
+                                    fit: BoxFit
+                                        .cover, // ajuste de la imagen dentro del card
+                                  ),
                                 ),
                               ),
                             ),
