@@ -57,9 +57,7 @@ class _MainPageState extends State<MainPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => LibroDetalle(
-                                idActual: librosDisponibles[itemIndex].id,
-                                imagenUrlActual:
-                                    librosDisponibles[itemIndex].urlImage),
+                                libroActual: librosDisponibles[itemIndex]),
                           ));
                     },
                     child: Book3DWidget(
@@ -82,9 +80,8 @@ class _MainPageState extends State<MainPage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => LibroDetalle(
-                                  idActual: librosPopulares[index].id,
-                                  imagenUrlActual:
-                                      librosPopulares[index].urlImage),
+                                libroActual: librosPopulares[index],
+                              ),
                             ));
                       },
                       child: Column(

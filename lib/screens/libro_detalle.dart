@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:venta_libros/models/libro.dart';
 
 class LibroDetalle extends StatelessWidget {
-  const LibroDetalle(
-      {super.key, required this.imagenUrlActual, required this.idActual});
-  final String imagenUrlActual;
-  final String idActual;
+  const LibroDetalle({super.key, required this.libroActual});
+  final Libro libroActual;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,8 @@ class LibroDetalle extends StatelessWidget {
                 children: [
                   Container(
                       width: MediaQuery.of(context).size.width,
-                      child: Image.network(imagenUrlActual, fit: BoxFit.cover)),
+                      child: Image.network(libroActual.urlImage,
+                          fit: BoxFit.cover)),
                   Container(
                     color: Color.fromARGB(255, 56, 107, 237).withOpacity(
                         0.5), // Cambia la opacidad según sea necesario
@@ -45,13 +46,26 @@ class LibroDetalle extends StatelessWidget {
                           child: ClipRRect(
                               borderRadius: BorderRadius.circular(20.0),
                               child: Hero(
-                                  tag: idActual,
-                                  child: Image.network(imagenUrlActual)))),
+                                  tag: libroActual.id,
+                                  child: Image.network(libroActual.urlImage)))),
                     ),
                   ),
                   Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Text('PONER HERO A  imgsn')),
+                    alignment: Alignment.bottomCenter,
+                    child: Text(
+                      libroActual.titulo,
+                      style: GoogleFonts.teko(
+                        textStyle:
+                            Theme.of(context).textTheme.bodySmall!.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 25,
+                                ),
+                        //fontSize: 48,
+                        fontWeight: FontWeight.w700,
+                        //fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ),
                 ],
               )
               //Image.network(imagenUrlActual),
