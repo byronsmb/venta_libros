@@ -55,11 +55,15 @@ class LibroDetalle extends StatelessWidget {
                     child: Text(
                       libroActual.titulo,
                       style: GoogleFonts.teko(
-                        textStyle:
-                            Theme.of(context).textTheme.bodySmall!.copyWith(
-                                  color: Colors.white,
-                                  fontSize: 25,
-                                ),
+                        textStyle: Theme.of(context)
+                            .textTheme
+                            .bodySmall!
+                            .copyWith(
+                                color: Colors.white,
+                                fontSize: 20,
+                                backgroundColor:
+                                    const Color.fromARGB(255, 71, 69, 69)
+                                        .withOpacity(0.5)),
                         //fontSize: 48,
                         fontWeight: FontWeight.w700,
                         //fontStyle: FontStyle.italic,
@@ -71,8 +75,42 @@ class LibroDetalle extends StatelessWidget {
               //Image.network(imagenUrlActual),
               ),
           Expanded(
-            child: Text('TEXTO Y OTRAS COSAS DE ABAJO'),
-          ),
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Sobre el libro',
+                    style: GoogleFonts.titilliumWeb(
+                      textStyle:
+                          Theme.of(context).textTheme.bodySmall!.copyWith(
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
+                    ),
+                  ),
+                ),
+                Text(
+                  libroActual.descripcion,
+                  style: GoogleFonts.titilliumWeb(
+                    textStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          fontSize: 15,
+                          color: Colors.black,
+                        ),
+                  ),
+                  maxLines: 6,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Adquirir'),
+                ),
+              ],
+            ),
+          )),
         ],
       ),
     );
