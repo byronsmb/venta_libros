@@ -104,9 +104,17 @@ class LibroDetalle extends StatelessWidget {
                   maxLines: 6,
                   overflow: TextOverflow.ellipsis,
                 ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Adquirir'),
+                Container(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(
+                        Colors.amber,
+                      ),
+                    ),
+                    child: Text('Adquirir'),
+                  ),
                 ),
               ],
             ),
