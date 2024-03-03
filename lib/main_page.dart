@@ -86,8 +86,6 @@ class _MainPageState extends State<MainPage> {
                   style: GoogleFonts.teko(
                     textStyle: Theme.of(context).textTheme.bodySmall,
                     fontSize: 30,
-                    //fontWeight: FontWeight.w700,
-                    //fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
