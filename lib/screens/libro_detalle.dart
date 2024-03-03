@@ -2,26 +2,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venta_libros/models/libro.dart';
+import 'package:flip_widget/flip_widget.dart';
 
-class LibroDetalle extends StatelessWidget {
+class LibroDetalle extends StatefulWidget {
   const LibroDetalle({super.key, required this.libroActual});
   final Libro libroActual;
 
   @override
+  State<LibroDetalle> createState() => _LibroDetalleState();
+}
+
+class _LibroDetalleState extends State<LibroDetalle> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Color.fromARGB(255, 56, 107, 237)),
       body: Column(
         children: [
           Container(
-              color: Colors.red,
+              //color: Colors.red,
               height: MediaQuery.of(context).size.height * 0.5,
               width: MediaQuery.of(context).size.width,
               child: Stack(
                 children: [
                   Container(
                       width: MediaQuery.of(context).size.width,
-                      child: Image.network(libroActual.urlImage,
+                      child: Image.network(widget.libroActual.urlImage,
                           fit: BoxFit.cover)),
                   Container(
                     color: Color.fromARGB(255, 56, 107, 237).withOpacity(
@@ -44,16 +50,21 @@ class LibroDetalle extends StatelessWidget {
                             ],
                           ),
                           child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20.0),
-                              child: Hero(
-                                  tag: libroActual.id,
-                                  child: Image.network(libroActual.urlImage)))),
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: Hero(
+                              tag: widget.libroActual.id,
+                              child: FlipWidget(
+                                child:
+                                    Image.network(widget.libroActual.urlImage),
+                              ),
+                            ),
+                          )),
                     ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Text(
-                      libroActual.titulo,
+                      widget.libroActual.titulo,
                       style: GoogleFonts.teko(
                         textStyle: Theme.of(context)
                             .textTheme
@@ -94,7 +105,7 @@ class LibroDetalle extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  libroActual.descripcion,
+                  widget.libroActual.descripcion,
                   style: GoogleFonts.titilliumWeb(
                     textStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontSize: 15,
@@ -110,10 +121,10 @@ class LibroDetalle extends StatelessWidget {
                     onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(
-                        Colors.amber,
+                        Color.fromARGB(255, 56, 107, 237),
                       ),
                     ),
-                    child: Text('Adquirir'),
+                    child: Text('ADQUIRIR'),
                   ),
                 ),
               ],
