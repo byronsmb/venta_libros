@@ -120,15 +120,12 @@ class _MainPageState extends State<MainPage> {
                                     10.0), // bordes redondeados
                               ),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.circular(
-                                    10.0), // para que la imagen tenga bordes redondeados
+                                borderRadius: BorderRadius.circular(10.0),
                                 child: Hero(
                                   tag: librosPopulares[index].id,
                                   child: Image.network(
-                                    librosPopulares[index]
-                                        .urlImage, // URL de la imagen
-                                    fit: BoxFit
-                                        .cover, // ajuste de la imagen dentro del card
+                                    librosPopulares[index].urlImage,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
