@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:venta_libros/models/libro.dart';
@@ -26,12 +25,12 @@ double _clampMin(double v) {
 }
 
 class _LibroDetalleState extends State<LibroDetalle> {
-  GlobalKey<FlipWidgetState> _flipKey = GlobalKey();
+  final GlobalKey<FlipWidgetState> _flipKey = GlobalKey();
   Offset _oldPosition = Offset.zero;
 
   @override
   Widget build(BuildContext context) {
-    Size size = Size(256, 256);
+    Size size = const Size(256, 256);
     return Scaffold(
       appBar: AppBar(backgroundColor: const Color.fromARGB(255, 56, 107, 237)),
       body: Column(
@@ -47,7 +46,7 @@ class _LibroDetalleState extends State<LibroDetalle> {
                       child: Image.network(widget.libroActual.urlImage,
                           fit: BoxFit.cover)),
                   Container(
-                    color: Color.fromARGB(255, 56, 107, 237).withOpacity(
+                    color: const Color.fromARGB(255, 56, 107, 237).withOpacity(
                         0.5), // Cambia la opacidad según sea necesario
                   ),
                   Center(
