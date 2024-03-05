@@ -113,7 +113,7 @@ class _MainPageState extends State<MainPage> {
                             //color: Colors.red,
                             height: 180,
                             child: Card(
-                              elevation: 15, 
+                              elevation: 15,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(
                                     10.0), // bordes redondeados
