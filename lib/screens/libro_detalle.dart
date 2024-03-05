@@ -163,12 +163,12 @@ class _LibroDetalleState extends State<LibroDetalle> {
                   width: 200,
                   child: ElevatedButton(
                     onPressed: () {},
-                    style: ButtonStyle(
+                    style: const ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(
                         Color.fromARGB(255, 56, 107, 237),
                       ),
                     ),
-                    child: Text('ADQUIRIR'),
+                    child: const Text('ADQUIRIR'),
                   ),
                 ),
               ],
