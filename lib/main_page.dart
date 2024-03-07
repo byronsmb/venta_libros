@@ -189,7 +189,7 @@ class _MainPageState extends State<MainPage> {
           padding: const EdgeInsets.all(8.0),
           child: FloatingActionButton(
             backgroundColor: _currentIndex == 1 ? Colors.blue : Colors.blueGrey,
-            child: Icon(Icons.home),
+            child: const Icon(Icons.home),
             onPressed: () => setState(() {
               _currentIndex = 1;
             }),
