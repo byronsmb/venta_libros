@@ -120,14 +120,11 @@ class _LibroDetalleState extends State<LibroDetalle> {
                                         .withOpacity(0.5)),
                         //fontSize: 48,
                         fontWeight: FontWeight.w700,
-                        //fontStyle: FontStyle.italic,
                       ),
                     ),
                   ),
                 ],
-              )
-              //Image.network(imagenUrlActual),
-              ),
+              )),
           Expanded(
               child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
