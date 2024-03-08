@@ -109,7 +109,7 @@ class _MainPageState extends State<MainPage> {
                       },
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             //color: Colors.red,
                             height: 180,
                             child: Card(
