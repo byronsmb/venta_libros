@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
                 options: CarouselOptions(
                   height: 280.0, //altura
                   initialPage: 1,
-                  //agrandar pantalla central
+
                   enlargeCenterPage: false,
                   //autoPlay: true, // se reproduzca automatico
                   //aspectRatio: 16 / 9,
