@@ -89,7 +89,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
             ),
-            Container(
+            SizedBox(
               height: 200,
               child: ListView.builder(
                 itemCount: librosPopulares.length,
