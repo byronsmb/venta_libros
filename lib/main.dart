@@ -12,10 +12,3 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(home: MainPage());
   }
 }
-
-
-
-
-
-
-//'assets/images/epb.jpg'
