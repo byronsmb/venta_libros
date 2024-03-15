@@ -15,7 +15,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    int _currentIndex = 1;
+    int currentIndex = 1;
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -170,7 +170,7 @@ class _MainPageState extends State<MainPage> {
                   selectedItemColor: Colors.white,
                   onTap: (index) {
                     setState(() {
-                      _currentIndex = index;
+                      currentIndex = index;
                     });
                   },
                   items: const [
@@ -188,7 +188,7 @@ class _MainPageState extends State<MainPage> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.all(8.0),
           child: FloatingActionButton(
-            backgroundColor: _currentIndex == 1 ? Colors.blue : Colors.blueGrey,
+            backgroundColor: currentIndex == 1 ? Colors.blue : Colors.blueGrey,
             child: const Icon(Icons.home),
             onPressed: () => setState(() {
               _currentIndex = 1;
