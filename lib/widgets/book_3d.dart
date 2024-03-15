@@ -9,7 +9,7 @@ class Book3DWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //color: Colors.blue,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       width: 200.0,
       height: 300.0,
       child: Transform(
