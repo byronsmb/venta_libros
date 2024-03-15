@@ -165,7 +165,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
               child: BottomNavigationBar(
-                  currentIndex: _currentIndex,
+                  currentIndex: currentIndex,
                   backgroundColor: Colors.blue,
                   selectedItemColor: Colors.white,
                   onTap: (index) {
@@ -191,7 +191,7 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: currentIndex == 1 ? Colors.blue : Colors.blueGrey,
             child: const Icon(Icons.home),
             onPressed: () => setState(() {
-              _currentIndex = 1;
+              currentIndex = 1;
             }),
           ),
         ),
